@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,18 +84,12 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'django_example_app',
-
-        'USER': 'test0',
-
-        'PASSWORD': '12345',
-
-        'HOST': 'localhost',
-
-        'PORT': '5432',
+        'NAME': env.get_value('POSTGRES_DATABASE'), # use env file
+        'USER': env.get_value('POSTGRES_USER'),
+        'PASSWORD': env.get_value('POSTGRES_PASSWORD'),
+        'HOST': env.get_value('POSTGRES_HOST'),
+        'PORT': env.get_value('POSTGRES_PORT'),
     }
 }
 
