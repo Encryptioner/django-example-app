@@ -1,1 +1,5 @@
+# https://pypi.org/project/Django/
 Django==5.1.4
+
+# https://pypi.org/project/psycopg2/
+psycopg2==2.9.10
