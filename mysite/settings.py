@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-578(t8pov-9p_(*^1p*ej5ha^4v(zl(tu-k78b#^^yyw8lll%d'
+SECRET_KEY = env.get_value('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.get_value('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -85,7 +85,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.get_value('POSTGRES_DATABASE'), # use env file
+        'NAME': env.get_value('POSTGRES_DATABASE'),
         'USER': env.get_value('POSTGRES_USER'),
         'PASSWORD': env.get_value('POSTGRES_PASSWORD'),
         'HOST': env.get_value('POSTGRES_HOST'),
@@ -134,3 +134,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
