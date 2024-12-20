@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+app_name = "polls"
+
 urlpatterns = [
     # ex: /polls/
     # name is helpful for: <a href="{% url 'index' %}">index</a>
