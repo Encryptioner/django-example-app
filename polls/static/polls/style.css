@@ -9,4 +9,6 @@ li a:hover {
 body {
   background: white url("images/background.avif") no-repeat;
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
