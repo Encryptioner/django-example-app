@@ -10,5 +10,10 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "files.eol": "auto",
-  "editor.defaultFormatter": "ms-python.black-formatter"
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "pylint.args": [
+      "--load-plugins",
+      "pylint_django",
+      "--django-settings-module=mysite.settings",
+  ]
 }
