@@ -5,9 +5,10 @@
     "**/.git/subtree-cache/**": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "files.eol": "auto"
+  "files.eol": "auto",
+  "editor.defaultFormatter": "ms-python.black-formatter"
 }
