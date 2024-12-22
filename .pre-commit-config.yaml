@@ -28,4 +28,6 @@ repos:
             "-rn", # Only display messages
             "-sn", # Don't display the score
             "--rcfile=.pylintrc", # Link to your config file
+            "--load-plugins=pylint.extensions.docparams", # Load an extension
+            "--disable=E0307,E1101,C0103,C0415,C0114,C0115,C0116,W0611,R1705" # for disabling some errors"
           ]

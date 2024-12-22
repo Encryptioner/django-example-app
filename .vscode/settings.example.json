@@ -14,6 +14,6 @@
   "pylint.args": [
       "--load-plugins",
       "pylint_django",
-      "--django-settings-module=mysite.settings",
+      "--django-settings-module=mysite.settings"
   ]
 }
