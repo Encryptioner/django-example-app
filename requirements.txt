@@ -6,6 +6,14 @@
 #
 asgiref==3.8.1
     # via django
+astroid==3.3.7
+    # via pylint
+black===24.10.0
+    # via -r requirements.in
+click==8.1.8
+    # via black
+dill==0.3.9
+    # via pylint
 django==5.1.4
     # via
     #   -r requirements.in
@@ -14,9 +22,35 @@ django-debug-toolbar===4.4.6
     # via -r requirements.in
 django-environ==0.11.2
     # via -r requirements.in
+flake8===7.1.1
+    # via -r requirements.in
+isort==5.13.2
+    # via pylint
+mccabe==0.7.0
+    # via
+    #   flake8
+    #   pylint
+mypy-extensions==1.0.0
+    # via black
+packaging==24.2
+    # via black
+pathspec==0.12.1
+    # via black
+platformdirs==4.3.6
+    # via
+    #   black
+    #   pylint
 psycopg2==2.9.10
+    # via -r requirements.in
+pycodestyle==2.12.1
+    # via flake8
+pyflakes==3.2.0
+    # via flake8
+pylint===3.3.2
     # via -r requirements.in
 sqlparse==0.5.3
     # via
     #   django
     #   django-debug-toolbar
+tomlkit==0.13.2
+    # via pylint
