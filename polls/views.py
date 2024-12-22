@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.db.models import F
 from django.views import generic
+from .forms import ContactForm
 
 from .models import Choice, Question
 
@@ -36,7 +37,7 @@ def vote(request, question_id):
             "question": question,
             "error_message": "You didn't select a choice.",
         }
-        
+
         # Redisplay the question voting form.
         return render(request, "polls/detail.html", context)
     else:
@@ -46,3 +47,16 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+
+def contact_view(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Process form data
+            print(form.cleaned_data)
+            # Redirect or render success page
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {"form": form})
