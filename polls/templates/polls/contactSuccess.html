@@ -1,0 +1,9 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+    <p>Successfully submitted contact</p>
+
+    <a href="{% url 'polls:contactForm' %}"><button>Contact Again</button></a>
+
+{% endblock %}

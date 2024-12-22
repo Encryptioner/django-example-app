@@ -4,8 +4,7 @@ from django.urls import reverse
 from django.db.models import F
 from django.views import generic
 from .forms import ContactForm
-
-from .models import Choice, Question
+from .models import Choice, Question, Contact
 
 
 class IndexView(generic.ListView):
@@ -49,14 +48,33 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
 
-def contact_view(request):
+def contactForm(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
-            # Process form data
-            print(form.cleaned_data)
-            # Redirect or render success page
+
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+            file = request.FILES.get("file")
+
+            contact = Contact(
+                name=name,
+                email=email,
+                message=message,
+                file=file,
+            )
+
+            contact.save()  # Save the contact information to the database
+
+            return HttpResponseRedirect(
+                reverse("polls:contactSuccess")
+            )  # Redirect to a success page
     else:
         form = ContactForm()
 
-    return render(request, "contact.html", {"form": form})
+    return render(request, "polls/contactForm.html", {"form": form})
+
+
+def contactSuccess(request):
+    return render(request, "polls/contactSuccess.html")
