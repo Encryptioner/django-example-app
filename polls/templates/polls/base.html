@@ -19,7 +19,7 @@
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{% url 'polls:contactForm' %}">Contact</li>
           </ul>
         </nav>
 
@@ -29,7 +29,7 @@
           </div>
         </header>
 
-        <main class="container mt-10 h-100vh">
+        <main class="container mt-10 h-100vh mx-10">
           {% block content %}
           {% endblock %}
         </main>
