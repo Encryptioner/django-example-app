@@ -1,8 +1,9 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.db.models import F
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 from .forms import ContactForm
 from .models import Choice, Question, Contact
 
@@ -48,7 +49,7 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
 
-def contactForm(request):
+def contact_form(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
@@ -76,5 +77,30 @@ def contactForm(request):
     return render(request, "polls/contactForm.html", {"form": form})
 
 
-def contactSuccess(request):
+def contact_success(request):
     return render(request, "polls/contactSuccess.html")
+
+
+@csrf_exempt
+def contact_api(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+        file = request.FILES.get("file", None)
+
+        if not name or not email or not message:
+            return JsonResponse(
+                {"error": "Name, email, and message are required."}, status=400
+            )
+
+        contact = Contact(
+            name=name,
+            email=email,
+            message=message,
+            file=file,
+        )
+        contact.save()  # Save the contact information to the database
+
+        return JsonResponse({"message": "Contact information submitted successfully!"})
+    return JsonResponse({"error": "Invalid request method."}, status=405)

@@ -1,9 +1,9 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox  # pylint: disable=no-name-in-module
 import requests
 
 # API URL (replace with your actual Django contact API endpoint)
-API_URL = "http://127.0.0.1:8000/api/external/contact/"
+API_URL = "http://127.0.0.1:8000/polls/api/contact/"
 
 
 def submit_form():
