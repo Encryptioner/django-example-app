@@ -1,0 +1,44 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+  {% include 'polls/components/page_header.html' with header_title="Log in" header_description="Please log in to continue" %}
+  <form
+    method="post"
+    class="flex flex-col gap-y-8"
+  >
+      {% csrf_token %}
+      <div>
+        <label>Email:</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+      </div>
+
+      <button
+        type="submit"
+        class="w-40 ml-40 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+      >
+        Login
+      </button>
+  </form>
+  {% if error %}
+  <p style="color: red;">{{ error }}</p>
+  {% endif %}
+
+  <div class="flex mt-20">
+    <p class="text-xl">
+      Don't have account?
+    </p>
+    <button
+      type="button"
+      class="w-40 ml-40 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+      >
+      <a href="{% url 'clients:signup' %}">Sign up</a>
+    </button>
+  </div>
+
+{% endblock %}

@@ -3,10 +3,32 @@
 {% block content %}
 
   {% include 'polls/components/page_header.html' with header_title="Sign up" header_description="Please sign up to continue" %}
-  <form method="post">
+
+  <form
+    method="post"
+    class="flex flex-col gap-y-8"
+  >
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    <button
+      type="submit"
+      class="w-40 ml-40 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+    >
+      Sign Up
+    </button>
   </form>
+
+
+  <div class="flex mt-20">
+    <p class="text-xl">
+      Already have account?
+    </p>
+    <button
+      type="button"
+      class="w-40 ml-40 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+      >
+      <a href="{% url 'clients:login' %}">Log in</a>
+    </button>
+  </div>
 
 {% endblock %}

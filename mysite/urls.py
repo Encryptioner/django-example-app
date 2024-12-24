@@ -19,15 +19,25 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.shortcuts import redirect
+
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 admin.site.site_header = "Django Example App"
 
+
+def home_view(request):
+    if request.user.is_authenticated:
+        return redirect("/polls/")
+    return redirect("/clients/login/")
+
+
 urlpatterns = (
     [
+        path("", home_view, name="home"),
+        path("admin/", admin.site.urls),
         path("clients/", include("clients.urls")),
         path("polls/", include("polls.urls")),
-        path("admin/", admin.site.urls),
     ]
     + debug_toolbar_urls()
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

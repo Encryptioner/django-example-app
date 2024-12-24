@@ -26,16 +26,21 @@
     <body>
         <nav>
           <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="{% url 'polls:contactForm' %}">Contact</li>
+              <li><a href="{% url 'polls:index' %}">Home</a></li>
+              <li><a href="{% url 'polls:contactForm' %}">Contact</a></li>
+
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'clients:logout' %}">Logout</a></li>
+              {% else %}
+                <li><a href="{% url 'clients:login' %}">Log In</a></li>
+              {% endif %}
+
           </ul>
         </nav>
 
         <header class="page-header">
           <div class="container">
-              <h1><a href="/">Django Example App</a></h1>
+              <h1><a href="{% url 'polls:index' %}">Django Example App</a></h1>
           </div>
         </header>
 
