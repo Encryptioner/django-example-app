@@ -1,0 +1,12 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+  {% include 'polls/components/page_header.html' with header_title="Sign up" header_description="Please sign up to continue" %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign Up</button>
+  </form>
+
+{% endblock %}

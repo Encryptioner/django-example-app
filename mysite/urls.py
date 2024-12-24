@@ -25,6 +25,7 @@ admin.site.site_header = "Django Example App"
 
 urlpatterns = (
     [
+        path("clients/", include("clients.urls")),
         path("polls/", include("polls.urls")),
         path("admin/", admin.site.urls),
     ]
