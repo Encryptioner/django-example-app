@@ -34,6 +34,7 @@ DEBUG = env.get_value("DEBUG")
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "auth.User"
 
 # Application definition
 
@@ -122,6 +123,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    "clients.auth_backends.ClientUserBackend",  # Custom backend for client users
+    "django.contrib.auth.backends.ModelBackend",  # Default backend for admin
 ]
 
 

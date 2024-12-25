@@ -7,6 +7,7 @@ class LoginRequiredPollsMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+
         # Apply @login_required only to the polls app views
         if request.path.startswith("/polls/") and not request.user.is_authenticated:
             return redirect(
