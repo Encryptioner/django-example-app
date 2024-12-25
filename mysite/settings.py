@@ -61,6 +61,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "clients.middleware.RedirectLoggedInMiddleware",
     "polls.middleware.LoginRequiredPollsMiddleware",
+    "mysite.middleware.RedirectBasedOnUserTypeMiddleware",
 ]
 
 INTERNAL_IPS = [

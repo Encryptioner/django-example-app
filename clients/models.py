@@ -29,6 +29,14 @@ class ClientUserManager(BaseUserManager):
 
 
 class ClientUser(AbstractBaseUser, PermissionsMixin):
+    def has_module_perms(self, app_label):
+        # Prevent access to admin views
+        return False
+
+    def has_perm(self, perm, obj=None):
+        # Prevent access to admin views
+        return False
+
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=150)
     is_active = models.BooleanField(default=True)
