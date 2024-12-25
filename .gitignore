@@ -1,3 +1,7 @@
 __pycache__
 .env
 db.sqlite3
+debug.log
+
+.vscode/*
+!.vscode/*.example.json
