@@ -28,7 +28,7 @@ def login_view(request):
             request, email=email, password=password
         )  # Use custom backend
         if user:
-            login(request, user)
+            login(request, user, backend="clients.auth_backends.ClientUserBackend")
             return redirect("/polls")
         else:
             error = "Invalid email or password"
