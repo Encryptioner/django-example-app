@@ -1,0 +1,13 @@
+{
+  "files.autoSaveDelay": 1000,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "files.eol": "auto"
+}
