@@ -8,6 +8,12 @@ Django is a high-level Python web framework that encourages rapid development an
 ## Learning Django
 Everything you need to know about Django can be found in django [documentation](https://docs.djangoproject.com/en/5.1/)
 
+
+## Continue with Django Example App
+- This project focuses on progressive learning towards real world development
+- It is suggested to check updates by `commit by commit` or `branches after branches`
+- Check the [docs](./docs/) directory for documentation
+
 ## References
 1. https://docs.djangoproject.com/en/5.1/
 2. https://www.python.org/
