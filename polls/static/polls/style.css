@@ -1,0 +1,14 @@
+li a {
+  color: green;
+}
+
+li a:hover {
+  color: red;
+}
+
+body {
+  background: white url("images/background.avif") no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}

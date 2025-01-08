@@ -7,10 +7,16 @@
 asgiref==3.8.1
     # via django
 django==5.1.4
+    # via
+    #   -r requirements.in
+    #   django-debug-toolbar
+django-debug-toolbar===4.4.6
     # via -r requirements.in
 django-environ==0.11.2
     # via -r requirements.in
 psycopg2==2.9.10
     # via -r requirements.in
 sqlparse==0.5.3
-    # via django
+    # via
+    #   django
+    #   django-debug-toolbar
