@@ -14,4 +14,10 @@ urlpatterns = [
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     # ex: /polls/5/vote/
     path("<int:question_id>/vote/", views.vote, name="vote"),
+    # ex: /polls/contact
+    path("contact/", views.contact_form, name="contactForm"),
+    # ex: /polls/contact/success
+    path("contact/success/", views.contact_success, name="contactSuccess"),
+    # ex: /polls/api/contact
+    path("api/contact/", views.contact_api, name="apiContactForm"),
 ]

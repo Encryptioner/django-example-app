@@ -5,3 +5,5 @@ debug.log
 
 .vscode/*
 !.vscode/*.example.json
+
+datadump.json

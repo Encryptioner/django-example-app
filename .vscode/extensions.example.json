@@ -5,6 +5,8 @@
     "ms-python.isort",
     "batisteo.vscode-django",
     "ms-python.debugpy",
-    "formulahendry.code-runner"
+    "formulahendry.code-runner",
+    "ms-python.pylint",
+    "ms-python.black-formatter"
   ]
 }
